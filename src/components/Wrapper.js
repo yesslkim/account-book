@@ -1,5 +1,5 @@
 const Wrapper = ({ children }) => {
-	return <div clasName='wrapper'>{children}</div>;
+	return <div className='wrapper'>{children}</div>;
 };
 
 export default Wrapper;

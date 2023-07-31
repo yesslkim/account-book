@@ -16,7 +16,7 @@ const AccountLists = ({
 	const [date, setDate] = useState({ start: '', end: '' });
 	return (
 		<>
-			<ul>
+			<ul className='filter-lists'>
 				<li>
 					<SelectInput
 						label='유형 필터'

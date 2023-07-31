@@ -1,0 +1,92 @@
+@font-face {
+	font-family: 'Cafe24Supermagic-Bold-v1.0';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2')
+		format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+/* RESET */
+* {
+	box-sizing: border-box;
+}
+
+form,
+input,
+h2,
+select,
+option,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Cafe24Supermagic-Bold-v1.0';
+	font-size: 20px;
+}
+
+input,
+select {
+	font-family: inherit;
+}
+
+label {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+ul,
+li {
+	list-style-type: none;
+}
+
+.sr-only {
+	position: absolute;
+	margin: -1px;
+	font-size: 1px;
+	width: 1px;
+	height: 1px;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
+
+/* COMMON */
+.App {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.wrapper {
+	min-height: 200px;
+	padding: 20px;
+	border: 1px solid #000;
+	margin: 20px auto;
+}
+
+/* COMPONENTS */
+ul .input-group,
+div > .input-group {
+	margin-bottom: 0;
+}
+
+.field-group,
+.input-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.input-radio {
+	margin-right: 10px;
+}
+
+.filter-lists {
+	display: flex;
+}
+
+.filter-lists li {
+	margin-right: 20px;
+	font-size: 16px;
+}
