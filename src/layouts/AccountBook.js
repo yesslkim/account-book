@@ -18,7 +18,7 @@ const AccountBook = () => {
 	return (
 		<>
 			<Wrapper>
-				<h2 className='sr_only'>가계부 폼</h2>
+				<h2 className='sr-only'>가계부 폼</h2>
 				<form>
 					<Input label='이름' id='name' value='' onBlur={() => {}} />
 					<Input

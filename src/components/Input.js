@@ -7,7 +7,7 @@ const Input = ({
 	isRequired = true,
 }) => {
 	return (
-		<div className={`input-${type}`}>
+		<div className={`input-group input-${type}`}>
 			<label htmlFor={id}>{label}</label>
 			{isRequired && (
 				<input type={type} id={id} value={value} onBlur={onBlur} />
