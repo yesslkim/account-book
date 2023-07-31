@@ -6,8 +6,8 @@ const Checkbox = ({ id, label, isChecked, onChange }) => {
 				type='checkbox'
 				id={id}
 				name={id}
-				value={isChecked}
-				onBlur={onChange}
+				defaultValue={isChecked}
+				onChange={onChange}
 			/>
 		</div>
 	);

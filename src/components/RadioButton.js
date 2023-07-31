@@ -5,9 +5,9 @@ const RadioButton = ({ id, group, label, isChecked, onChange }) => {
 			<input
 				type='radio'
 				id={id}
-				name={id}
-				value={isChecked}
-				onBlur={onChange}
+				name={group}
+				checked={isChecked}
+				onChange={onChange}
 			/>
 		</div>
 	);

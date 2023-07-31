@@ -10,7 +10,14 @@ const Input = ({
 		<div className={`input-group input-${type}`}>
 			<label htmlFor={id}>{label}</label>
 			{isRequired && (
-				<input type={type} id={id} value={value} onBlur={onBlur} />
+				<input
+					required={isRequired}
+					type={type}
+					id={id}
+					name={id}
+					defaultValue={value}
+					onBlur={onBlur}
+				/>
 			)}
 		</div>
 	);
