@@ -66,7 +66,19 @@ const AccountLists = ({
 					/>
 				</li>
 			</ul>
-			<Wrapper>{lists && lists.map(list => <div>{list}</div>)}</Wrapper>
+			<Wrapper>
+				{lists &&
+					lists.map(list => (
+						<div className='account-list'>
+							<span>이름: {list.name}</span>
+							<span>가격: {list.price}</span>
+							<span>유형: {list.type}</span>
+							<span>구입 날짜: {list.dateToPurchase}</span>
+							{list.memo.length > 0 && <span>메모: {list.memo}</span>}
+							<span>재구매의사: {list.willRepurchase ? '있음' : '없음'}</span>
+						</div>
+					))}
+			</Wrapper>
 		</>
 	);
 };
