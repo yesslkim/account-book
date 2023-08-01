@@ -5,15 +5,18 @@ import Input from '../components/Input';
 
 const AccountLists = ({
 	lists,
+	filteredLists,
 	accountTypeList,
 	onFilterByAccount,
 	onSortByField,
 	onRangeByDate,
 }) => {
 	const sortLists = ['가격 높은 순', '가격 낮은 순', '최신 순', '오래된 순'];
-	const [orderBy, setOrderBy] = useState('');
+	const [filterBy, setFilterBy] = useState(0);
 	const [sortBy, setSortBy] = useState(sortLists[0]);
 	const [date, setDate] = useState({ start: '', end: '' });
+
+	const currentLists = filteredLists.length > 0 ? filteredLists : lists;
 	return (
 		<>
 			<ul className='filter-lists'>
@@ -22,10 +25,10 @@ const AccountLists = ({
 						label='유형 필터'
 						id='type'
 						options={accountTypeList}
-						value=''
-						onBlur={e => {
-							setOrderBy(() => e.target.value);
-							onFilterByAccount(orderBy);
+						value={filterBy}
+						onChange={e => {
+							setFilterBy(() => e.target.value);
+							onFilterByAccount(e.target.value);
 						}}
 					/>
 				</li>
@@ -35,7 +38,7 @@ const AccountLists = ({
 						id='type'
 						options={sortLists}
 						value={sortBy}
-						onBlur={e => {
+						onChange={e => {
 							setSortBy(() => e.target.value);
 							onSortByField(sortBy);
 						}}
@@ -67,9 +70,9 @@ const AccountLists = ({
 				</li>
 			</ul>
 			<Wrapper>
-				{lists &&
-					lists.map(list => (
-						<div className='account-list'>
+				{currentLists &&
+					currentLists.map(list => (
+						<div className='account-list' key={list.name}>
 							<span>이름: {list.name}</span>
 							<span>가격: {list.price}</span>
 							<span>유형: {list.type}</span>

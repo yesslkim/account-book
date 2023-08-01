@@ -10,17 +10,18 @@ const AccountBook = () => {
 	const accountTypeOptions = [
 		'생활용품',
 		'교육',
-		'문화색활',
+		'문화생활',
 		'패션/미용',
 		'교통/차량',
 		'기타',
 	];
 
 	const [allAccountsList, setAllAccountsList] = useState([]);
+	const [filteredList, setFilteredList] = useState([]);
 	const [accountList, setAccountList] = useState({
 		name: '',
 		price: 0,
-		type: accountTypeOptions[0],
+		type: 0,
 		dateToPurchase: '',
 		memo: '',
 		willRepurchase: false,
@@ -60,7 +61,7 @@ const AccountBook = () => {
 		setAccountList({
 			name: '',
 			price: 0,
-			type: accountTypeOptions[0],
+			type: 0,
 			dateToPurchase: '',
 			memo: '',
 			willRepurchase: false,
@@ -70,9 +71,16 @@ const AccountBook = () => {
 	const handleForm = e => {
 		e.preventDefault();
 		if (!validForm()) return;
-		setAllAccountsList([...allAccountsList, accountList]);
+		const newAccountListWithTypeName = {...accountList, type: accountTypeOptions[accountList.type]}
+		setAllAccountsList([...allAccountsList, newAccountListWithTypeName]);
 		resetForm();
 	};
+
+	const handleFilterByAccount = (filterIndex) => {
+		const currentFilter = accountTypeOptions[filterIndex];
+		const filteredList =  allAccountsList.filter(accountList => accountList.type === currentFilter);
+		setFilteredList(filteredList);
+	}
 
 	return (
 		<>
@@ -143,8 +151,9 @@ const AccountBook = () => {
 			</Wrapper>
 			<AccountLists
 				lists={allAccountsList}
+				filteredLists={filteredList}
 				accountTypeList={accountTypeOptions}
-				onFilterByAccount={() => {}}
+				onFilterByAccount={handleFilterByAccount}
 				onSortByField={() => {}}
 				onRangeByDate={() => {}}
 			/>
